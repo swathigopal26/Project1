@@ -55,8 +55,10 @@ public class Testcase1 extends BaseClass {
 		//Navigation to Causaldresses page
 		casualdressespage= homepage.CasualDressesPageNavigation();
 		
-		
-	
+		//Choosing the dress and adding to cart
+		casualdressespage.dressChossed.click();
+		casualdressespage.proceedButton.click();
+		System.out.println("Execution completed");
 	}
 	
 	

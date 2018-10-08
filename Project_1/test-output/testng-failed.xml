@@ -6,7 +6,6 @@
       <class name="com.test.Testcase1">
         <methods>
           <include name="loginPageTestMethod1"/>
-          <include name="tearDown"/>
           <include name="setUp"/>
         </methods>
       </class> <!-- com.test.Testcase1 -->
