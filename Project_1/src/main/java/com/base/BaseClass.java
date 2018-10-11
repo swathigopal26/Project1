@@ -23,7 +23,8 @@ public class BaseClass {
 		
 		try {
 			prop = new Properties();
-			FileInputStream ip = new FileInputStream("D:\\Users\\sg28\\workspace\\Project_1\\src\\main\\java\\com\\config\\config.properties");
+			//D:\Users\sg28\selenium\Git Local Repo\Project_1\src\main\java\com\config\config.properties
+			FileInputStream ip = new FileInputStream(System.getProperty("user.dir")+ "\\src\\main\\java\\com\\config\\config.properties");
 			prop.load(ip);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();

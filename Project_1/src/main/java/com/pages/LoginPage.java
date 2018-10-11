@@ -24,20 +24,31 @@ public class LoginPage extends BaseClass {
 	@FindBy(xpath = "//img[@alt='My Store']")
 	public WebElement logoImage;
 	
+	
+			
 	public LoginPage()
 	{
 		PageFactory.initElements(driver, this);
 	}
 	
-	public String verifyTitle()
+	public void signInMethod()
 	{
-		return driver.getTitle();
+		signInLink.click();
+	}
+	
+	public void verifyTitle()
+	{
+		String title = driver.getTitle();
+		Assert.assertEquals(title, "Login - My Store");
+		System.out.println("Login page Title is present");
 		
 	}
 	
-	public boolean logoVerify()
+	public void logoVerify()
 	{
-		return logoImage.isDisplayed();
+		boolean logo = logoImage.isDisplayed();
+		Assert.assertEquals(logo, true);
+		System.out.println("Login page Logo is present");
 	}
 	
 	public HomePage loginTest()

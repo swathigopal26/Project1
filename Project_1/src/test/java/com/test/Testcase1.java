@@ -15,6 +15,7 @@ import com.pages.CasualDressesPage;
 import com.pages.DressesPage;
 import com.pages.HomePage;
 import com.pages.LoginPage;
+import com.pages.OrderPage;
 
 public class Testcase1 extends BaseClass {
 
@@ -26,39 +27,45 @@ public class Testcase1 extends BaseClass {
 	HomePage homepage;
 	CasualDressesPage casualdressespage;
 	DressesPage dressespage;
+	OrderPage orderpage;
 	
 	@BeforeMethod
 	public void setUp()
 	{
 		initialization();
 		loginpage = new LoginPage();
-		loginpage.signInLink.click();
+		
 	}
 	
 	@Test
-	public void loginPageTestMethod1() throws Throwable{
+	public void TestMethod1() throws Throwable{
+		//click on signin link
+		loginpage.signInMethod();
 		
 		//Login page title verification
-		String title = loginpage.verifyTitle();
-		Assert.assertEquals(title, "Login - My Store");
-		System.out.println("Login page Title is present");
+		 loginpage.verifyTitle();
 		
 		//Login page logo verification
-		boolean logo = loginpage.logoVerify();
-		Assert.assertEquals(logo, true);
-		System.out.println("Login page Logo is present");
+		 loginpage.logoVerify();
 		
 		//Login to myaccount
 		homepage = loginpage.loginTest();
 		
-		
 		//Navigation to Causaldresses page
 		casualdressespage= homepage.CasualDressesPageNavigation();
+	
+		//Casualdresses Page title verification
+		casualdressespage.casualdressPageTitleVerification();
 		
-		//Choosing the dress and adding to cart
-		casualdressespage.dressChossed.click();
-		casualdressespage.proceedButton.click();
-		System.out.println("Execution completed");
+		//Choosing the dress and adding to cart and proceeding to checkout
+		orderpage = casualdressespage.proceedToCheckOut();
+		
+		//OrderPage title verification
+		orderpage.orderPageTitleVerification();
+		
+		//Order submission
+		orderpage.OrderSubmission();
+		
 	}
 	
 	
@@ -67,4 +74,6 @@ public class Testcase1 extends BaseClass {
 	{
 		driver.quit();
 	}
+
+	
 }

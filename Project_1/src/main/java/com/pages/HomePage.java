@@ -30,9 +30,6 @@ public class HomePage extends BaseClass{
 		Thread.sleep(5000);
 		CasualdressesTab.click();
 		Thread.sleep(5000);
-		String casualDressesTitle = driver.getTitle();
-		Assert.assertEquals(casualDressesTitle, "Casual Dresses - My Store");
-		System.out.println("Navigated to casual dresses page");
 		return new CasualDressesPage();
 	
 		
