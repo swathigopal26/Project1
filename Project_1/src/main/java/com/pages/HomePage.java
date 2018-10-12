@@ -14,7 +14,10 @@ public class HomePage extends BaseClass{
 	public WebElement dressesTab;
 
 	@FindBy(xpath = "(//a[contains(text(),'Casual Dresses')])[2]")
-	public WebElement CasualdressesTab;
+	public WebElement casualDressesTab;
+	
+	@FindBy(xpath = "(//a[contains(text(),'Summer Dresses')])[2]")
+	public WebElement summerDressesTab;
 	
 	public HomePage()
 	{
@@ -27,14 +30,21 @@ public class HomePage extends BaseClass{
 
 		Actions action = new Actions(driver);
 		action.moveToElement(dressesTab).build().perform();
-		Thread.sleep(5000);
-		CasualdressesTab.click();
-		Thread.sleep(5000);
+		//Thread.sleep(5000);
+		casualDressesTab.click();
+		//Thread.sleep(5000);
 		return new CasualDressesPage();
-	
-		
 	}
 
-	
+	public SummerDressesPage summerDressesPageNavigation() throws Throwable
+	{
+		Actions action = new Actions(driver);
+		action.moveToElement(dressesTab).build().perform();
+		Thread.sleep(5000);
+		summerDressesTab.click();
+		Thread.sleep(5000);
+		return new SummerDressesPage();
+		
+	}
 
 }

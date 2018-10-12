@@ -12,9 +12,9 @@ public class CasualDressesPage extends BaseClass {
 	
 	@FindBy (xpath = "//img[@title = 'Printed Dress']")
 	public WebElement dressImage;
-	
+						
 	@FindBy (xpath = "//a[@title = 'Printed Dress']/parent::h5//following-sibling::div[@class = 'button-container']/a[@title = 'Add to cart']")
-	public WebElement dressChossed;
+	public WebElement dressChossedAddtocartIcon;
 	
 	//@FindBy (xpath = "//a[contains(@title, 'Proceed to checkout')]")
 	@FindBy (linkText = "Proceed to checkout")
@@ -31,12 +31,14 @@ public class CasualDressesPage extends BaseClass {
 		Assert.assertEquals(casualDressesTitle, "Casual Dresses - My Store");
 		System.out.println("Navigated to casual dresses page");
 	}
+	
+	//Add the chosed dressed into cart and proceed to checkout
 	public OrderPage proceedToCheckOut() throws Throwable
 	{
 		Actions action = new Actions(driver);
 		action.moveToElement(dressImage).build().perform();;
 		Thread.sleep(3000);
-		dressChossed.click();
+		dressChossedAddtocartIcon.click();
 		proceedButton.click();
 		return new OrderPage();
 	}
