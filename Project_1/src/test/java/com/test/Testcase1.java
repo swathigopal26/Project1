@@ -38,7 +38,7 @@ public class Testcase1 extends BaseClass {
 	}
 	
 	@Test
-	public void TestMethod1() throws Throwable{
+	public void testMethod1() throws Throwable{
 		//click on signin link
 		loginpage.signInMethod();
 		
